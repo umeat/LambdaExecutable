@@ -51,12 +51,12 @@ def lambda_handler(event, context):
   f.close()
   
   # Run RNX2CRX
-  rnx2crx = Executable('executables\RNX2CRX')
+  rnx2crx = Executable('executables/RNX2CRX')
   CRX = rnx2crx.run('{} -'.format(RNX))
   # Can access stdout, stderr, and returncode with rnx2crx.stdout, .stderr, and .returncode
   
   # Run CRX2RNX
-  crx2rnx = Executable('executables\CRX2RNX')
+  crx2rnx = Executable('executables/CRX2RNX')
   new_RNX = crx2rnx.run('{} -'.format(CRX))
     
   return
