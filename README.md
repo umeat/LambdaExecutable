@@ -14,7 +14,7 @@ A zip file 'function package' is uploaded to Lambda with the following contents:
 ├───executable.py
 ├───executables
 │   ├───CRX2RNX
-│   ├───RNX2CRX
+│   └───RNX2CRX
 └───lambda_function.py
 ```
 
