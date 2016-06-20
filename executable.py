@@ -46,8 +46,9 @@ class Executable:
         self.stdout, self.stderr, self.returncode = None, None, None
 
         # Run executable from shell with arguments as string
-        process = subprocess.Popen('{} {}'.format(self.command, args), 
-            shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(
+            '{} {}'.format(self.command, args), shell=True, 
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 			
         # Store stdout and stderr
         self.stdout, self.stderr = process.communicate()
