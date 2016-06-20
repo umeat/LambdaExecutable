@@ -40,6 +40,8 @@ class Executable:
             stdout, stderr  Process standard communication channels
             returncode      Process exit status
         
+        Process output variables are overwritten if run multiple times
+        
         Additionally returns stdout
         """
         # Clear output variables from any previous execution
