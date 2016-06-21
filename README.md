@@ -1,9 +1,19 @@
 # Executable
-Python class to prepare and wrap 64 bit Linux executable's for use in AWS Lambda functions
+Python class to prepare and run 64 bit Linux executable's for use in AWS Lambda functions
 
 This Python class is designed for use with AWS Lambda scripts, where the execution of a third party Linux 64 bit executable is required.
 
 ### Usage
+
+```
+exe = Executable('relative/path/to/exe')
+result = exe.run('-sw1 -sw2')
+print('OUT: {}\nERR: {}\nRET: {}'.format(
+    exe.stdout, exe.stderr, exe.returncode))
+    
+# run() will return self.stdout
+# result == exe.stdout
+```
 
 The following example is a full Lambda implementation, where the funciton is triggered by the creation of an S3 object - in this example the input file is assumed to be a RINEX file. The file is Hatanaka compressed then decompressed using the Linux 64 bit executables CRX2RNX, and RNX2CRX respectively. 
 
