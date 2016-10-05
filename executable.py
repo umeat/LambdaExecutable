@@ -2,6 +2,7 @@ import os
 import stat
 import subprocess
 import shutil
+import uuid
 
 class Executable:
     """Prepare and run 64 bit Linux executable with AWS Lambda
@@ -22,7 +23,9 @@ class Executable:
             command     New location of executable, used to run executable
         """
         # Create copy of executable in /tmp/
-        self.command = '/tmp/{}'.format(os.path.basename(source))
+        self.command = '/tmp/{}{}'.format(
+            uuid.uuid4(), os.path.basename(source))
+
         shutil.copyfile(source, self.command)
 		
         # Grant execution permissions
