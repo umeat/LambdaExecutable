@@ -56,9 +56,8 @@ def lambda_handler(event, context):
 	
   # Write S3 object contents to local file
   RNX = '/tmp/{}'.format(os.path.basename(key))
-  f = open(in_file, 'wb')
-  f.write(response['Body'].read())
-  f.close()
+  with open(in_file, 'wb') as f:
+  	f.write(response['Body'].read())
   
   # Run RNX2CRX
   rnx2crx = Executable('executables/RNX2CRX')
