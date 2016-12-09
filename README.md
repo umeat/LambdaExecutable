@@ -6,6 +6,8 @@ This Python class is designed for use with AWS Lambda scripts, where the executi
 ### Usage
 
 ```
+from executable import Executable
+
 exe = Executable('relative/path/to/exe')
 result = exe.run('-sw1 -sw2')
 print('OUT: {}\nERR: {}\nRET: {}'.format(
